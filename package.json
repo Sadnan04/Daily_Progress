@@ -1,0 +1,12 @@
+{
+  "name": "daily-progress-tracker",
+  "private": true,
+  "description": "Daily Progress Tracker (daily_progress_tracker) — React + Express + MongoDB",
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev --prefix backend\" \"npm run dev --prefix client\"",
+    "install:all": "npm install --prefix backend && npm install --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
