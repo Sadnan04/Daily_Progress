@@ -8,9 +8,11 @@ export default function Sidebar() {
       aria-label="Main navigation"
     >
       <div className="mb-4 flex items-center gap-3 border-b border-white/10 pb-4">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl gradient-accent text-lg shadow-lg">
-          🧠
-        </div>
+        <img
+          src="/brand-logo.png"
+          alt="Daily Progress Tracker logo"
+          className="h-11 w-11 shrink-0 rounded-xl object-cover shadow-lg"
+        />
         <div className="min-w-0">
           <p className="font-display text-sm font-semibold leading-tight text-white">Daily Progress Tracker</p>
           <p className="mt-1 text-[11px] leading-snug text-slate-400">

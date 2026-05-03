@@ -21,6 +21,8 @@ const CLIENT_ORIGINS = [
   )
 ];
 const LOCALHOST_ORIGIN_RE = /^https?:\/\/localhost:\d+$/;
+const PRIVATE_LAN_ORIGIN_RE =
+  /^https?:\/\/((192\.168\.\d{1,3}\.\d{1,3})|(10\.\d{1,3}\.\d{1,3}\.\d{1,3})|(172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3})):\d+$/;
 
 app.use(
   cors({
@@ -33,6 +35,11 @@ app.use(
 
       // Dev convenience: Vite may switch ports (5173 -> 5174, etc).
       if (LOCALHOST_ORIGIN_RE.test(origin)) return callback(null, true);
+
+      // Dev on phone/tablet over same Wi-Fi (private LAN IPs).
+      if (process.env.NODE_ENV !== "production" && PRIVATE_LAN_ORIGIN_RE.test(origin)) {
+        return callback(null, true);
+      }
 
       return callback(new Error(`CORS blocked for origin: ${origin}`));
     },

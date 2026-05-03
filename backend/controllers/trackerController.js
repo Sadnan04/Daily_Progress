@@ -11,6 +11,7 @@ import {
   getDayCompletion,
   getTasksForDay,
   TASK_DEFS,
+  DAY_TYPES,
   DAYS,
   tasksPlain
 } from "../utils/trackerMath.js";
